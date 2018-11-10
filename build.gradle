@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id "io.spring.dependency-management" version "1.0.1.RELEASE"
+
+}
+dependencyManagement {
+    imports {
+        mavenBom "io.projectreactor:reactor-bom:Bismuth-RELEASE"
+    }
+}
+
+group 'com.infopulse'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://mvnrepository.com/artifact/"
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'io.projectreactor:reactor-core'
+}
+
+mainClassName = 'com.infopulse.main.Main'
